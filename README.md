@@ -1,6 +1,6 @@
 # react-notification-mui &middot; ![travis build](https://img.shields.io/travis/DCCS-IT-Business-Solutions/react-notification-mui.svg) ![npm version](https://img.shields.io/npm/v/@dccs/react-notification-mui.svg)
 
-Simple Formik <-> MaterialUI wrappers. [https://dccs-it-business-solutions.github.io/react-notification-mui/](https://dccs-it-business-solutions.github.io/react-notification-mui/)
+Simple Notifications [https://dccs-it-business-solutions.github.io/react-notification-mui/](https://dccs-it-business-solutions.github.io/react-notification-mui/)
 
 ## Installation
 
