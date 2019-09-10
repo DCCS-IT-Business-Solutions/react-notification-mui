@@ -14,7 +14,37 @@ This command will download and install react-notification-mui
 
 ## How it works
 
-TODO
+This packages makes it very easy to notify the user.
+
+To do so you have to wrap the Components that want to display notifications with the "NotificationContextProvider" Component.
+
+```javascript
+<NotificationContextProvider>
+  ...
+  <DisplayNotifications />
+  ...
+</NotificationContextProvider>
+```
+
+Now all Components wraped by the Provider can show notifications like this:
+
+```javascript
+function DisplayNotifications(){
+  const { addInfo, addWarning, addError, addCustomNotification } =
+    React.useContext < INotificationContext > NotificationContext;
+
+  function handleClick(){
+    addInfo("my message", "my title");
+    addWarning("my message", "my title");
+    addError("my message", "my title");
+    addCustomNotification({ message: "my message", title: "my title" });
+  }
+
+  return <Butonn onClick={handleClick}>Show Notifications</Button>
+}
+```
+
+You are able to customize the look of the info, warning and error notifications threw properties given to to the **NotificationContextProvider**
 
 ## Contributing
 
