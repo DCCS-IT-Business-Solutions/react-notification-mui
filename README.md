@@ -23,6 +23,7 @@ To use display notifications wrap you application with the **NotificationContext
 ```
 
 ### How to display notifications
+
 The NotificationContextProvider provides the following functions:
 
 <li><code>addInfo</code></li>
@@ -33,6 +34,7 @@ The NotificationContextProvider provides the following functions:
 <br>
 
 #### addInfo, addWarning, addError
+
 ##### Parameters:
 
 <li><code>message: string | React.ReactNode</code></li>
@@ -42,8 +44,7 @@ The NotificationContextProvider provides the following functions:
 
 ```javascript
 function DisplayNotifications() {
-  const { addInfo, addWarning, addError } =
-    React.useContext < INotificationContext > NotificationContext;
+  const { addInfo, addWarning, addError } = React.useContext<INotificationContext>(NotificationContext=;
   function handleClick() {
     addInfo("my message");
     addWarning("my message");
@@ -67,8 +68,11 @@ function DisplayNotifications() {
 ```
 
 #### addCustomNotification
+
 If you want to display a custom notification you can use the **addCustomNotification** method.
+
 ##### Parameters:
+
 <code>notification: ICustomNotificationProps</code>
 
 ###### ICustomNotificationProps
@@ -93,8 +97,7 @@ If you want to display a custom notification you can use the **addCustomNotifica
 
 ```javascript
 function DisplayMyCustomNotification(){
- const { addCustomNotification } =
-    React.useContext < INotificationContext > (NotificationContext);
+ const { addCustomNotification } = React.useContext<INotificationContext>(NotificationContext);
 
   function handleClick(){
     addCustomNotification({message:"my message"});
