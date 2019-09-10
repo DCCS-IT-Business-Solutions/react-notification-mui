@@ -87,6 +87,7 @@ If you want to display a custom notification you can use the **addCustomNotifica
 | action                 | `React.ReactNode|undefiend`                                                                                                          | a close button, that dissmises the notification |
 
 [ThemeStyle](https://github.com/mui-org/material-ui/blob/master/packages/material-ui/src/styles/createTypography.d.ts)
+
 #####Usage:
 
 ```javascript
