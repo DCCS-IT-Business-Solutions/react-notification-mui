@@ -22,7 +22,7 @@ To use display notifications wrap you application with the **NotificationContext
 </NotificationContextProvider>
 ```
 
-###How to display notifications
+### How to display notifications
 The NotificationContextProvider provides the following functions:
 
 <li><code>addInfo</code></li>
@@ -32,12 +32,12 @@ The NotificationContextProvider provides the following functions:
 
 <br>
 
-####addInfo, addWarning, addError
-#####Parameters:
+#### addInfo, addWarning, addError
+##### Parameters:
 
 <li><code>message: string | React.ReactNode</code></li>
 <li><code>title?: string | React.ReactNode</code></li>
-#####Usage:
+##### Usage:
 
 ```javascript
 function DisplayNotifications() {
@@ -65,12 +65,12 @@ function DisplayNotifications() {
 }
 ```
 
-####addCustomNotification
+#### addCustomNotification
 If you want to display a custom notification you can use the **addCustomNotification** method.
-#####Parameters:
+##### Parameters:
 <code>notification: ICustomNotificationProps</code>
 
-######ICustomNotificationProps
+###### ICustomNotificationProps
 
 | Name                   | Type                                                                                                                                 | Default                                         |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------- |
@@ -88,7 +88,7 @@ If you want to display a custom notification you can use the **addCustomNotifica
 
 [ThemeStyle](https://github.com/mui-org/material-ui/blob/master/packages/material-ui/src/styles/createTypography.d.ts)
 
-#####Usage:
+##### Usage:
 
 ```javascript
 function DisplayMyCustomNotification(){
@@ -103,7 +103,7 @@ function DisplayMyCustomNotification(){
 }
 ```
 
-###How to customize notifications shown by addInfo, addWarning, addError
+### How to customize notifications shown by addInfo, addWarning, addError
 
 You are able to customize the look of the info, warning and error notifications threw properties given to to the **NotificationContextProvider**
 
