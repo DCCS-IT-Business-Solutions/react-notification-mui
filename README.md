@@ -14,35 +14,95 @@ This command will download and install react-notification-mui
 
 ## How it works
 
-This packages makes it very easy to notify the user.
-
-To do so you have to wrap the Components that want to display notifications with the "NotificationContextProvider" Component.
+To use display notifications wrap you application with the **NotificationContextProvider**
 
 ```javascript
 <NotificationContextProvider>
-  ...
-  <DisplayNotifications />
-  ...
+  <YourApp />
 </NotificationContextProvider>
 ```
 
-Now all Components wraped by the Provider can show notifications like this:
+###How to display notifications
+The NotificationContextProvider provides the following functions:
+
+<li><code>addInfo</code></li>
+<li><code>addWarning</code></li>
+<li><code>addError</code></li>
+<li><code>addCustomNotification</code></li>
+
+<br>
+
+####addInfo, addWarning, addError
+#####Parameters:
+
+<li><code>message: string | React.ReactNode</code></li>
+<li><code>title?: string | React.ReactNode</code></li>
+#####Usage:
 
 ```javascript
-function DisplayNotifications(){
-  const { addInfo, addWarning, addError, addCustomNotification } =
+function DisplayNotifications() {
+  const { addInfo, addWarning, addError } =
     React.useContext < INotificationContext > NotificationContext;
+  function handleClick() {
+    addInfo("my message");
+    addWarning("my message");
+    addError("my message");
 
-  function handleClick(){
+    addInfo(<span>my message</span>);
+    addWarning(<span>my message</span>);
+    addError(<span>my message</span>);
+
     addInfo("my message", "my title");
     addWarning("my message", "my title");
     addError("my message", "my title");
-    addCustomNotification({ message: "my message", title: "my title" });
+
+    addInfo(<span>my message</span>, <span>my mytitle</span>);
+    addWarning(<span>my message</span>, <span>my mytitle</span>);
+    addError(<span>my message</span>, <span>my mytitle</span>);
   }
 
-  return <Butonn onClick={handleClick}>Show Notifications</Button>
+  return <div onClick={handleClick}>Show Notifications</div>;
 }
 ```
+
+####addCustomNotification
+If you want to display a custom notification you can use the **addCustomNotification** method.
+#####Parameters:
+<code>notification: ICustomNotificationProps</code>
+
+######ICustomNotificationProps
+
+| Name                   | Type                                                                                                                                 | Default                                         |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------- |
+| message                | `string|React.ReactNode`                                                                                                             |                                                 |
+| autoHideDuration       | `number|undefiend`                                                                                                                   | `undefined`                                     |
+| enableClickAway        | `boolean|undefiend`                                                                                                                  | `false`                                         |
+| transitionDuration     | `number|undefiend`                                                                                                                   | `750`                                           |
+| snackBarStyle          | `React.CSSProperties|undefiend`                                                                                                      | `undefined`                                     |
+| snackBarMessageStyle   | `React.CSSProptiers|undefiend`                                                                                                       | `undefined`                                     |
+| snackBarMessageVariant | [`ThemeStyle`](https://github.com/mui-org/material-ui/blob/master/packages/material-ui/src/styles/createTypography.d.ts)`|undefiend` | `body1`                                         |
+| snackBarTitleStyle     | `React.CSSProptiers|undefiend`                                                                                                       | `undefined`                                     |
+| snackBarTitleVariant   | [`ThemeStyle`](https://github.com/mui-org/material-ui/blob/master/packages/material-ui/src/styles/createTypography.d.ts)`|undefiend` | `h6`                                            |
+| title                  | `string|React.ReactNode|undefiend`                                                                                                   | `undefined`                                     |
+| action                 | `React.ReactNode|undefiend`                                                                                                          | a close button, that dissmises the notification |
+
+[ThemeStyle](https://github.com/mui-org/material-ui/blob/master/packages/material-ui/src/styles/createTypography.d.ts)
+#####Usage:
+
+```javascript
+function DisplayMyCustomNotification(){
+ const { addCustomNotification } =
+    React.useContext < INotificationContext > (NotificationContext);
+
+  function handleClick(){
+    addCustomNotification({message:"my message"});
+  }
+
+  return <Butonn onClick={handleClick}>Show Custom Notifications</Button>
+}
+```
+
+###How to customize notifications shown by addInfo, addWarning, addError
 
 You are able to customize the look of the info, warning and error notifications threw properties given to to the **NotificationContextProvider**
 
