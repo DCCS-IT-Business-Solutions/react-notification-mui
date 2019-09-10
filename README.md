@@ -44,7 +44,7 @@ The NotificationContextProvider provides the following functions:
 
 ```javascript
 function DisplayNotifications() {
-  const { addInfo, addWarning, addError } = React.useContext<INotificationContext>(NotificationContext=;
+  const { addInfo, addWarning, addError } = React.useContext<INotificationContext>(NotificationContext);
   function handleClick() {
     addInfo("my message");
     addWarning("my message");
