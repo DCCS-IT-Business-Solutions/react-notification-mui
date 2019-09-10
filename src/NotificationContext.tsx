@@ -8,16 +8,6 @@ import {
 import * as moment from "moment";
 import { SnackbarOrigin } from "@material-ui/core/Snackbar";
 import { ThemeStyle } from "@material-ui/core/styles/createTypography";
-// import _ from "lodash";
-
-// interface INotificationItemProps extends INotificationTypeProps {
-//   text: string;
-//   height?: number;
-//   open: boolean;
-//   id: number;
-//   variant: NotificationType;
-//   timestamp: number;
-// }
 
 export interface INotificationTypeProps {
   autoHideDuration?: number;
@@ -237,9 +227,7 @@ export interface INotificationContext {
     message: string | React.ReactNode,
     title?: string | React.ReactNode
   ) => void;
-  addCustomNotification: (
-    notification: ICustomNotificationProps | string
-  ) => void;
+  addCustomNotification: (notification: ICustomNotificationProps) => void;
 }
 
 export const NotificationContext = React.createContext<
