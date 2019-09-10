@@ -37,6 +37,7 @@ The NotificationContextProvider provides the following functions:
 
 <li><code>message: string | React.ReactNode</code></li>
 <li><code>title?: string | React.ReactNode</code></li>
+
 ##### Usage:
 
 ```javascript
