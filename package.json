@@ -1,6 +1,6 @@
 {
   "name": "@dccs/react-notification-mui",
-  "version": "0.4.1",
+  "version": "0.0.1",
   "description": "React-Autocomplete without the tears",
   "main": "lib/index.js",
   "scripts": {
