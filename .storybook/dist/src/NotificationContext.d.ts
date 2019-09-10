@@ -121,6 +121,6 @@ export interface INotificationContext {
     addInfo: (message: string | React.ReactNode, title?: string | React.ReactNode) => void;
     addWarning: (message: string | React.ReactNode, title?: string | React.ReactNode) => void;
     addError: (message: string | React.ReactNode, title?: string | React.ReactNode) => void;
-    addCustomNotification: (notification: ICustomNotificationProps | string) => void;
+    addCustomNotification: (notification: ICustomNotificationProps) => void;
 }
 export declare const NotificationContext: React.Context<any>;
