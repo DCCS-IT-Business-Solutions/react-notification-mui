@@ -80,16 +80,16 @@ If you want to display a custom notification you can use the **addCustomNotifica
 | Name                   | Type                                                                                                                                 | Default                                         |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------- |
 | message                | `string|React.ReactNode`                                                                                                             |                                                 |
-| autoHideDuration       | `number|undefiend`                                                                                                                   | `undefined`                                     |
-| enableClickAway        | `boolean|undefiend`                                                                                                                  | `false`                                         |
-| transitionDuration     | `number|undefiend`                                                                                                                   | `750`                                           |
-| snackBarStyle          | `React.CSSProperties|undefiend`                                                                                                      | `undefined`                                     |
-| snackBarMessageStyle   | `React.CSSProptiers|undefiend`                                                                                                       | `undefined`                                     |
-| snackBarMessageVariant | [`ThemeStyle`](https://github.com/mui-org/material-ui/blob/master/packages/material-ui/src/styles/createTypography.d.ts)`|undefiend` | `body1`                                         |
-| snackBarTitleStyle     | `React.CSSProptiers|undefiend`                                                                                                       | `undefined`                                     |
-| snackBarTitleVariant   | [`ThemeStyle`](https://github.com/mui-org/material-ui/blob/master/packages/material-ui/src/styles/createTypography.d.ts)`|undefiend` | `h6`                                            |
-| title                  | `string|React.ReactNode|undefiend`                                                                                                   | `undefined`                                     |
-| action                 | `React.ReactNode|undefiend`                                                                                                          | a close button, that dissmises the notification |
+| autoHideDuration       | `number|undefined`                                                                                                                   | `undefined`                                     |
+| enableClickAway        | `boolean|undefined`                                                                                                                  | `false`                                         |
+| transitionDuration     | `number|undefined`                                                                                                                   | `750`                                           |
+| snackBarStyle          | `React.CSSProperties|undefined`                                                                                                      | `undefined`                                     |
+| snackBarMessageStyle   | `React.CSSProptiers|undefined`                                                                                                       | `undefined`                                     |
+| snackBarMessageVariant | [`ThemeStyle`](https://github.com/mui-org/material-ui/blob/master/packages/material-ui/src/styles/createTypography.d.ts)`|undefined` | `body1`                                         |
+| snackBarTitleStyle     | `React.CSSProptiers|undefined`                                                                                                       | `undefined`                                     |
+| snackBarTitleVariant   | [`ThemeStyle`](https://github.com/mui-org/material-ui/blob/master/packages/material-ui/src/styles/createTypography.d.ts)`|undefined` | `h6`                                            |
+| title                  | `string|React.ReactNode|undefined`                                                                                                   | `undefined`                                     |
+| action                 | `React.ReactNode|undefined`                                                                                                          | a close button, that dissmises the notification |
 
 [ThemeStyle](https://github.com/mui-org/material-ui/blob/master/packages/material-ui/src/styles/createTypography.d.ts)
 
