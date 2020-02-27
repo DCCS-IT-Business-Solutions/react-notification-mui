@@ -35,6 +35,12 @@ export function NotificationContextProvider(props: INotificationContextProps) {
     INotificationItemProps[]
   >([]);
 
+  /**
+   * display a notification styled as info
+   * the default style can be overwritten through NotificationContextProvider.defaultProps
+   * @param {string|React.ReactNode} message - the message of the notification
+   * @param {undefined|string|React.ReactNode} title - the title of the notification
+   */
   function addInfo(message: string | React.ReactNode, title?: string) {
     const now = moment.now();
     const noti = {
@@ -215,21 +221,42 @@ NotificationContextProvider.defaultProps = {
 };
 
 export interface INotificationContext {
+  /**
+   * display a notification styled as info
+   * the default style can be overwritten through NotificationContextProvider.defaultProps
+   * @param {string|React.ReactNode} message - the message of the notification
+   * @param {undefined|string|React.ReactNode} title - the title of the notification
+   */
   addInfo: (
     message: string | React.ReactNode,
     title?: string | React.ReactNode
   ) => void;
+
+  /**
+   * display a notification styled as warning
+   * the default style can be overwritten through NotificationContextProvider.defaultProps
+   * @param {string|React.ReactNode} message - the message of the notification
+   * @param {undefined|string|React.ReactNode} title - the title of the notification
+   */
   addWarning: (
     message: string | React.ReactNode,
     title?: string | React.ReactNode
   ) => void;
+
+  /**
+   * display a notification styled as error
+   * the default style can be overwritten through NotificationContextProvider.defaultProps
+   * @param {string|React.ReactNode} message - the message of the notification
+   * @param {undefined|string|React.ReactNode} title - the title of the notification
+   */
   addError: (
     message: string | React.ReactNode,
     title?: string | React.ReactNode
   ) => void;
+
   addCustomNotification: (notification: ICustomNotificationProps) => void;
 }
 
-export const NotificationContext = React.createContext<
-  INotificationContext | any
->({});
+export const NotificationContext = React.createContext<INotificationContext>(
+  {} as INotificationContext
+);

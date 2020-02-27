@@ -11,7 +11,8 @@
     "test": "jest --runInBand --coverage --passWithNoTests",
     "watch-test": "jest --watch --runInBand --coverage --passWithNoTests",
     "storybook": "start-storybook -p 6006 -c .storybook",
-    "build-storybook": "build-storybook -o docs"
+    "build-storybook": "build-storybook -o docs",
+    "build-doc": "typedoc "
   },
   "repository": {
     "type": "git",
@@ -55,11 +56,11 @@
     "@storybook/react": "^5.1.10",
     "@types/enzyme": "^3.10.3",
     "@types/jest": "^24.0.17",
+    "@types/moment": "^2.13.0",
     "@types/react": "16.8.25",
     "@types/react-dom": "16.8.5",
     "@types/storybook__react": "^4.0.2",
     "@types/styled-components": "^4.1.18",
-    "@types/moment": "^2.13.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
     "enzyme": "^3.10.0",
@@ -73,7 +74,8 @@
     "tslint": "^5.19.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-react": "^4.0.0",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "typedoc": "^0.16.6"
   },
   "jest": {
     "moduleFileExtensions": [

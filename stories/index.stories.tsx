@@ -68,3 +68,16 @@ storiesOf("Notification", module).add("Notification", () => (
     </Paper>
   </NotificationContextProvider>
 ));
+
+// NotificationContextProvider.defaultProps = {
+//   infoProps.: {
+//     snackBarStyle: {
+//       backgroundColor: "black",
+//       color:"white",
+//       fontSize:""
+//     }
+//   }
+// };
+
+NotificationContextProvider.defaultProps.infoProps.snackBarStyle.backgroundColor =
+  "black";
