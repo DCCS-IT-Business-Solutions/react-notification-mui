@@ -3,7 +3,7 @@ import {
   NotificationItem,
   NotificationType,
   INotificationItemProps,
-  ICustomNotificationProps
+  ICustomNotificationProps,
 } from "./NotificationItem";
 import * as moment from "moment";
 import { SnackbarOrigin } from "@material-ui/core/Snackbar";
@@ -23,17 +23,58 @@ export interface INotificationTypeProps {
 
 export interface INotificationContextProps {
   displayOldestOnTop?: boolean;
-  infoProps: INotificationTypeProps;
-  warningProps: INotificationTypeProps;
-  errorProps: INotificationTypeProps;
-  anchorOrigin: SnackbarOrigin;
+  infoProps?: INotificationTypeProps;
+  warningProps?: INotificationTypeProps;
+  errorProps?: INotificationTypeProps;
+  anchorOrigin?: SnackbarOrigin;
   children?: any;
 }
 
-export function NotificationContextProvider(props: INotificationContextProps) {
+const defaultProps = {
+  anchorOrigin: { vertical: "top", horizontal: "right" } as SnackbarOrigin,
+  infoProps: {
+    transitionDuration: 750,
+    enableClickAway: false,
+    autoHideDuration: 2500,
+    snackBarStyle: {
+      backgroundColor: "green",
+      color: "white",
+      fontSize: 16,
+    },
+    snackBarMessageVariant: "body1",
+    snackBarTitleVariant: "h6",
+  } as INotificationTypeProps,
+  warningProps: {
+    transitionDuration: 750,
+    enableClickAway: false,
+    autoHideDuration: 2500,
+    snackBarStyle: {
+      backgroundColor: "orange",
+      color: "white",
+      fontSize: 16,
+    },
+    snackBarMessageVariant: "body1",
+    snackBarTitleVariant: "h6",
+  } as INotificationTypeProps,
+  errorProps: {
+    transitionDuration: 750,
+    enableClickAway: false,
+    snackBarStyle: {
+      backgroundColor: "red",
+      color: "white",
+      fontSize: 16,
+    },
+    snackBarMessageVariant: "body1",
+    snackBarTitleVariant: "h6",
+  } as INotificationTypeProps,
+};
+
+export function NotificationContextProvider(tprops: INotificationContextProps) {
   const [notifications, setNotifications] = React.useState<
     INotificationItemProps[]
   >([]);
+
+  const props = { ...defaultProps, ...tprops };
 
   function addInfo(message: string | React.ReactNode, title?: string) {
     const now = moment.now();
@@ -45,7 +86,7 @@ export function NotificationContextProvider(props: INotificationContextProps) {
       variant: NotificationType.info,
       remainingDuration: props.infoProps.autoHideDuration,
       message,
-      title
+      title,
     };
     addNotification(noti);
   }
@@ -60,7 +101,7 @@ export function NotificationContextProvider(props: INotificationContextProps) {
       variant: NotificationType.warning,
       remainingDuration: props.infoProps.autoHideDuration,
       message,
-      title
+      title,
     };
     addNotification(noti);
   }
@@ -75,7 +116,7 @@ export function NotificationContextProvider(props: INotificationContextProps) {
       variant: NotificationType.error,
       remainingDuration: props.infoProps.autoHideDuration,
       message,
-      title
+      title,
     };
     addNotification(noti);
   }
@@ -92,7 +133,7 @@ export function NotificationContextProvider(props: INotificationContextProps) {
       remainingDuration: notification.autoHideDuration,
       timestamp: now,
       open: true,
-      variant: NotificationType.custom
+      variant: NotificationType.custom,
     });
   }
 
@@ -106,7 +147,7 @@ export function NotificationContextProvider(props: INotificationContextProps) {
 
   function handleClose(id: number) {
     setNotifications(
-      notifications.map(noti => {
+      notifications.map((noti) => {
         return noti.id === id ? { ...noti, open: false } : { ...noti };
       })
     );
@@ -114,7 +155,7 @@ export function NotificationContextProvider(props: INotificationContextProps) {
 
   function handleExited(id: number) {
     setNotifications(
-      notifications.filter(noti => {
+      notifications.filter((noti) => {
         if (noti.id === id) {
           return false;
         }
@@ -125,7 +166,7 @@ export function NotificationContextProvider(props: INotificationContextProps) {
 
   function handleSetHeight(id: number, height: number) {
     setNotifications(
-      notifications.map(noti =>
+      notifications.map((noti) =>
         noti.id === id ? { ...noti, height } : { ...noti }
       )
     );
@@ -135,7 +176,7 @@ export function NotificationContextProvider(props: INotificationContextProps) {
     let marginTop = 0;
     notifications
       .slice(0, index)
-      .forEach(noti => (marginTop += noti.height || 0));
+      .forEach((noti) => (marginTop += noti.height || 0));
     return marginTop + index * 8;
   }
 
@@ -153,7 +194,7 @@ export function NotificationContextProvider(props: INotificationContextProps) {
           addInfo,
           addWarning,
           addError,
-          addCustomNotification
+          addCustomNotification,
         } as INotificationContext
       }
     >
@@ -174,45 +215,6 @@ export function NotificationContextProvider(props: INotificationContextProps) {
     </NotificationContext.Provider>
   );
 }
-
-NotificationContextProvider.defaultProps = {
-  anchorOrigin: { vertical: "top", horizontal: "right" },
-  infoProps: {
-    transitionDuration: 750,
-    enableClickAway: false,
-    autoHideDuration: 2500,
-    snackBarStyle: {
-      backgroundColor: "green",
-      color: "white",
-      fontSize: 16
-    },
-    snackBarMessageVariant: "body1",
-    snackBarTitleVariant: "h6"
-  },
-  warningProps: {
-    transitionDuration: 750,
-    enableClickAway: false,
-    autoHideDuration: 2500,
-    snackBarStyle: {
-      backgroundColor: "orange",
-      color: "white",
-      fontSize: 16
-    },
-    snackBarMessageVariant: "body1",
-    snackBarTitleVariant: "h6"
-  },
-  errorProps: {
-    transitionDuration: 750,
-    enableClickAway: false,
-    snackBarStyle: {
-      backgroundColor: "red",
-      color: "white",
-      fontSize: 16
-    },
-    snackBarMessageVariant: "body1",
-    snackBarTitleVariant: "h6"
-  }
-};
 
 export interface INotificationContext {
   addInfo: (
