@@ -15,55 +15,14 @@ export interface INotificationTypeProps {
 }
 export interface INotificationContextProps {
     displayOldestOnTop?: boolean;
-    infoProps: INotificationTypeProps;
-    warningProps: INotificationTypeProps;
-    errorProps: INotificationTypeProps;
-    anchorOrigin: SnackbarOrigin;
+    infoProps?: INotificationTypeProps;
+    warningProps?: INotificationTypeProps;
+    errorProps?: INotificationTypeProps;
+    anchorOrigin?: SnackbarOrigin;
     children?: any;
 }
-export declare function NotificationContextProvider(props: INotificationContextProps): JSX.Element;
+export declare function NotificationContextProvider(tprops: INotificationContextProps): JSX.Element;
 export declare namespace NotificationContextProvider {
-    var defaultProps: {
-        anchorOrigin: {
-            vertical: string;
-            horizontal: string;
-        };
-        infoProps: {
-            transitionDuration: number;
-            enableClickAway: boolean;
-            autoHideDuration: number;
-            snackBarStyle: {
-                backgroundColor: string;
-                color: string;
-                fontSize: number;
-            };
-            snackBarMessageVariant: string;
-            snackBarTitleVariant: string;
-        };
-        warningProps: {
-            transitionDuration: number;
-            enableClickAway: boolean;
-            autoHideDuration: number;
-            snackBarStyle: {
-                backgroundColor: string;
-                color: string;
-                fontSize: number;
-            };
-            snackBarMessageVariant: string;
-            snackBarTitleVariant: string;
-        };
-        errorProps: {
-            transitionDuration: number;
-            enableClickAway: boolean;
-            snackBarStyle: {
-                backgroundColor: string;
-                color: string;
-                fontSize: number;
-            };
-            snackBarMessageVariant: string;
-            snackBarTitleVariant: string;
-        };
-    };
     var displayName: string;
     var __docgenInfo: {
         "description": string;
