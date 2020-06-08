@@ -80,7 +80,8 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-react": "^4.0.0",
     "typescript": "^3.5.3",
-    "prettier": "^2.0.4"
+    "prettier": "^2.0.4",
+    "es-abstract": "^1.14.2"
   },
   "jest": {
     "moduleFileExtensions": [
